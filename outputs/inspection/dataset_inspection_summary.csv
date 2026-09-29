@@ -1,0 +1,10 @@
+,0
+total_images,647
+total_masks,665
+benign_images,437
+malignant_images,210
+images_without_masks,0
+images_with_multiple_masks,17
+empty_masks,0
+image_mask_dimension_mismatches,0
+exact_duplicate_images,2
