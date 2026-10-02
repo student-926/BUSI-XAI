@@ -42,3 +42,43 @@ WEIGHT_DECAY = 1e-4
 NUM_EPOCHS = 20
 
 BEST_MODEL_FILENAME = "resnet50_best.pt"
+
+# ---------------------------------------------------------------------
+# XAI experiment configuration
+# ---------------------------------------------------------------------
+
+XAI_RANDOM_SEED = 42
+
+# Evaluation
+XAI_EVALUATION_SPLIT = "test"
+XAI_NUM_TEST_SAMPLES = 97
+
+# Common image representation
+XAI_IMAGE_SIZE = (224, 224)
+XAI_MAP_DTYPE = "float32"
+XAI_MAP_MIN = 0.0
+XAI_MAP_MAX = 1.0
+
+# Explanation target
+XAI_TARGET = "predicted_class"
+
+# Ground-truth masks
+XAI_MASK_RESIZE_INTERPOLATION = "nearest"
+XAI_MASK_BINARY = True
+
+# Methods
+XAI_METHODS = (
+    "gradcam",
+    "lime",
+    "shap",
+)
+
+# Runtime measurement
+XAI_RECORD_RUNTIME = True
+
+# Output directories
+XAI_OUTPUT_DIR = PROJECT_ROOT / "outputs/xai"
+
+GRADCAM_OUTPUT_DIR = XAI_OUTPUT_DIR / "gradcam"
+LIME_OUTPUT_DIR = XAI_OUTPUT_DIR / "lime"
+SHAP_OUTPUT_DIR = XAI_OUTPUT_DIR / "shap"

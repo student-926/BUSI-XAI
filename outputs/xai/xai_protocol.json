@@ -1,0 +1,30 @@
+{
+  "experiment": "BUSI-XAI",
+  "evaluation_split": "test",
+  "num_test_samples": 97,
+  "xai_methods": [
+    "gradcam",
+    "lime",
+    "shap"
+  ],
+  "target": "predicted_class",
+  "image_size": [
+    224,
+    224
+  ],
+  "common_map": {
+    "dtype": "float32",
+    "minimum": 0.0,
+    "maximum": 1.0,
+    "non_negative": true
+  },
+  "ground_truth_masks": {
+    "resize_interpolation": "nearest",
+    "binary": true
+  },
+  "random_seed": 42,
+  "record_runtime": true,
+  "model_selection": "validation_loss_only",
+  "test_set_used_for_model_selection": false,
+  "model_retraining_for_xai": false
+}
