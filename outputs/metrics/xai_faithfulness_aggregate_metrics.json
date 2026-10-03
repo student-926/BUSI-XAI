@@ -1,0 +1,35 @@
+{
+  "gradcam": {
+    "n": 97,
+    "original_probability_mean": 0.917820331362105,
+    "perturbed_probability_mean": 0.6824176593578046,
+    "probability_drop_mean": 0.2354026720043003,
+    "probability_drop_median": 0.10906988382339478,
+    "probability_drop_std": 0.30238826963685606,
+    "probability_drop_min": -0.36387479305267334,
+    "probability_drop_max": 0.9217418730258942,
+    "deleted_fraction_mean": 0.10000797193877552
+  },
+  "lime": {
+    "n": 97,
+    "original_probability_mean": 0.917820331362105,
+    "perturbed_probability_mean": 0.7817780721702219,
+    "probability_drop_mean": 0.13604225919188298,
+    "probability_drop_median": 0.05182349681854248,
+    "probability_drop_std": 0.238834532071086,
+    "probability_drop_min": -0.3624146580696106,
+    "probability_drop_max": 0.8882132023572922,
+    "deleted_fraction_mean": 0.11886982563644015
+  },
+  "shap": {
+    "n": 97,
+    "original_probability_mean": 0.917820331362105,
+    "perturbed_probability_mean": 0.585671669813161,
+    "probability_drop_mean": 0.33214866154894385,
+    "probability_drop_median": 0.34931761026382446,
+    "probability_drop_std": 0.1757998118254168,
+    "probability_drop_min": -0.14284193515777588,
+    "probability_drop_max": 0.8902632668614388,
+    "deleted_fraction_mean": 0.10000797193877552
+  }
+}

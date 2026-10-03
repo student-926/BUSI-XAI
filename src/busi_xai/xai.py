@@ -404,6 +404,301 @@ def attribution_to_top_percentile_mask(
     binary_mask = (attribution_map >= threshold).astype(np.uint8)
 
     return binary_mask
+    
+
+def calculate_deletion_faithfulness(
+    model,
+    image_tensor,
+    attribution_map,
+    target_class,
+    device,
+    percentile=90.0,
+    baseline_value=0.0,
+):
+    """
+    Measure deletion-based faithfulness of an attribution map.
+
+    The top-attribution pixels are replaced by a fixed baseline value,
+    and the change in probability assigned to the original target class
+    is measured.
+
+    Parameters
+    ----------
+    model : torch.nn.Module
+        Trained classification model.
+
+    image_tensor : torch.Tensor
+        Preprocessed image tensor with shape (1, 3, 224, 224).
+
+    attribution_map : np.ndarray
+        Normalized attribution map with shape (224, 224).
+
+    target_class : int
+        Original predicted class whose probability is evaluated.
+
+    device : torch.device
+        Computation device.
+
+    percentile : float, default=90.0
+        Attribution percentile used to define the pixels to delete.
+        90.0 means the top 10% of attribution pixels.
+
+    baseline_value : float, default=0.0
+        Fixed baseline value used to replace selected pixels.
+
+    Returns
+    -------
+    dict
+        Faithfulness measurements including original probability,
+        perturbed probability, probability drop, and deletion size.
+    """
+    if image_tensor.shape != (1, 3, 224, 224):
+        raise ValueError(
+            "Expected image_tensor shape (1, 3, 224, 224), "
+            f"got {tuple(image_tensor.shape)}."
+        )
+
+    if not isinstance(attribution_map, np.ndarray):
+        raise TypeError("attribution_map must be a NumPy array.")
+
+    if attribution_map.shape != (224, 224):
+        raise ValueError(
+            "Expected attribution map shape (224, 224), "
+            f"got {attribution_map.shape}."
+        )
+
+    binary_mask = attribution_to_top_percentile_mask(
+        attribution_map,
+        percentile=percentile,
+    )
+
+    perturbed_image = image_tensor.clone()
+
+    mask_tensor = torch.from_numpy(
+        binary_mask
+    ).to(
+        device=device,
+        dtype=torch.bool,
+    )
+
+    perturbed_image[:, :, mask_tensor] = baseline_value
+
+    model.eval()
+
+    with torch.no_grad():
+        original_logits = model(image_tensor)
+        original_probabilities = torch.softmax(
+            original_logits,
+            dim=1,
+        )
+
+        perturbed_logits = model(perturbed_image)
+        perturbed_probabilities = torch.softmax(
+            perturbed_logits,
+            dim=1,
+        )
+
+    original_probability = float(
+        original_probabilities[0, target_class].item()
+    )
+
+    perturbed_probability = float(
+        perturbed_probabilities[0, target_class].item()
+    )
+
+    probability_drop = (
+        original_probability - perturbed_probability
+    )
+
+    return {
+        "original_probability": original_probability,
+        "perturbed_probability": perturbed_probability,
+        "probability_drop": float(probability_drop),
+        "deletion_percentile": float(percentile),
+        "deleted_pixels": int(binary_mask.sum()),
+        "total_pixels": int(binary_mask.size),
+        "deleted_fraction": float(
+            binary_mask.sum() / binary_mask.size
+        ),
+        "baseline_value": float(baseline_value),
+    }
+
+def evaluate_faithfulness_records(
+    model,
+    test_dataset,
+    records,
+    xai_output_dir,
+    device,
+    percentile=90.0,
+    baseline_value=0.0,
+):
+    """
+    Evaluate deletion-based faithfulness for existing XAI records.
+
+    Existing attribution maps are loaded from:
+        xai_output_dir / method / dataset_index_XXX.npy
+
+    No explanations are regenerated and existing XAI records are not modified.
+
+    Parameters
+    ----------
+    model : torch.nn.Module
+        The already-trained classification model.
+
+    test_dataset : Dataset
+        The existing test dataset used for the XAI experiment.
+
+    records : list of dict
+        Existing XAI records loaded from xai_records.json.
+
+    xai_output_dir : str or pathlib.Path
+        Root directory containing the existing XAI attribution maps.
+
+    device : torch.device
+        Device used for model inference.
+
+    percentile : float, default=90.0
+        Attribution percentile used to define deleted pixels.
+
+    baseline_value : float, default=0.0
+        Fixed replacement value for deleted pixels.
+
+    Returns
+    -------
+    list of dict
+        One faithfulness record for each image/method pair.
+    """
+    from pathlib import Path
+
+    if not records:
+        raise ValueError("records must not be empty.")
+
+    xai_output_dir = Path(xai_output_dir)
+
+    required_methods = {"gradcam", "lime", "shap"}
+
+    record_pairs = set()
+    faithfulness_records = []
+
+    for record in sorted(
+        records,
+        key=lambda item: (
+            int(item["dataset_index"]),
+            str(item["method"]),
+        ),
+    ):
+        dataset_index = int(record["dataset_index"])
+        method = str(record["method"])
+
+        if method not in required_methods:
+            raise ValueError(
+                f"Unexpected XAI method '{method}' "
+                f"for dataset index {dataset_index}."
+            )
+
+        pair = (dataset_index, method)
+
+        if pair in record_pairs:
+            raise ValueError(
+                f"Duplicate image/method pair found: {pair}"
+            )
+
+        record_pairs.add(pair)
+
+        if dataset_index < 0 or dataset_index >= len(test_dataset):
+            raise IndexError(
+                f"dataset_index {dataset_index} is outside "
+                f"the test dataset range."
+            )
+
+        image_item = test_dataset[dataset_index]
+
+        if not isinstance(image_item, dict):
+            raise TypeError(
+                "Expected test_dataset items to be dictionaries."
+            )
+
+        if "image" not in image_item:
+            raise KeyError(
+                "Test dataset item is missing the 'image' key."
+            )
+
+        image_tensor = image_item["image"]
+
+        if not torch.is_tensor(image_tensor):
+            raise TypeError(
+                "Expected test dataset 'image' to be a torch.Tensor."
+            )
+
+        if image_tensor.shape != (3, 224, 224):
+            raise ValueError(
+                "Expected test image shape (3, 224, 224), "
+                f"got {tuple(image_tensor.shape)} "
+                f"for dataset index {dataset_index}."
+            )
+
+        image_tensor = image_tensor.unsqueeze(0).to(device)
+
+        map_path = (
+            xai_output_dir
+            / method
+            / f"dataset_index_{dataset_index:03d}.npy"
+        )
+
+        if not map_path.exists():
+            raise FileNotFoundError(
+                f"Attribution map not found: {map_path}"
+            )
+
+        attribution_map = np.load(map_path)
+
+        if attribution_map.shape != (224, 224):
+            raise ValueError(
+                f"Invalid attribution map shape for "
+                f"{method}, dataset index {dataset_index}: "
+                f"{attribution_map.shape}"
+            )
+
+        faithfulness = calculate_deletion_faithfulness(
+            model=model,
+            image_tensor=image_tensor,
+            attribution_map=attribution_map,
+            target_class=int(record["predicted_class"]),
+            device=device,
+            percentile=percentile,
+            baseline_value=baseline_value,
+        )
+
+        faithfulness_record = {
+            "image_id": int(record["image_id"]),
+            "dataset_index": dataset_index,
+            "true_label": int(record["true_label"]),
+            "predicted_class": int(record["predicted_class"]),
+            "correct": bool(record["correct"]),
+            "method": method,
+            **faithfulness,
+        }
+
+        faithfulness_records.append(faithfulness_record)
+
+    expected_pairs = {
+        (dataset_index, method)
+        for dataset_index in range(len(test_dataset))
+        for method in required_methods
+    }
+
+    if record_pairs != expected_pairs:
+        missing_pairs = sorted(expected_pairs - record_pairs)
+        extra_pairs = sorted(record_pairs - expected_pairs)
+
+        raise ValueError(
+            "Faithfulness record pairing is incomplete or inconsistent. "
+            f"Missing pairs: {missing_pairs}; "
+            f"Unexpected pairs: {extra_pairs}"
+        )
+
+    return faithfulness_records
+
 
 def generate_lime(
     model,
