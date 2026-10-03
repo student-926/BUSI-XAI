@@ -1,0 +1,26 @@
+{
+  "gradcam_vs_lime": {
+    "n": 97,
+    "spearman_mean": 0.23112689349421303,
+    "spearman_median": 0.26647442555827966,
+    "spearman_std": 0.2056697026985768,
+    "spearman_min": -0.28252584641793466,
+    "spearman_max": 0.605497602305525
+  },
+  "gradcam_vs_shap": {
+    "n": 97,
+    "spearman_mean": 0.34005081533716547,
+    "spearman_median": 0.3625143947854841,
+    "spearman_std": 0.16025238681207937,
+    "spearman_min": -0.17653302951462305,
+    "spearman_max": 0.6791128365298287
+  },
+  "lime_vs_shap": {
+    "n": 97,
+    "spearman_mean": 0.1629490040413141,
+    "spearman_median": 0.1609470980837,
+    "spearman_std": 0.12594473691903477,
+    "spearman_min": -0.24313598361547373,
+    "spearman_max": 0.3869393359335181
+  }
+}

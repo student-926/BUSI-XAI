@@ -82,3 +82,23 @@ XAI_OUTPUT_DIR = PROJECT_ROOT / "outputs/xai"
 GRADCAM_OUTPUT_DIR = XAI_OUTPUT_DIR / "gradcam"
 LIME_OUTPUT_DIR = XAI_OUTPUT_DIR / "lime"
 SHAP_OUTPUT_DIR = XAI_OUTPUT_DIR / "shap"
+
+# ---------------------------------------------------------------------
+# XAI stability experiment configuration
+# ---------------------------------------------------------------------
+
+XAI_STABILITY_RANDOM_SEED = 42
+
+# Controlled input perturbation
+XAI_STABILITY_NOISE_STD = 0.05
+
+# Stability evaluation
+XAI_STABILITY_PRIMARY_METRIC = "spearman"
+XAI_STABILITY_SECONDARY_METRIC = "mae"
+
+# Output directories
+XAI_STABILITY_OUTPUT_DIR = XAI_OUTPUT_DIR / "stability"
+
+STABILITY_GRADCAM_OUTPUT_DIR = XAI_STABILITY_OUTPUT_DIR / "gradcam"
+STABILITY_LIME_OUTPUT_DIR = XAI_STABILITY_OUTPUT_DIR / "lime"
+STABILITY_SHAP_OUTPUT_DIR = XAI_STABILITY_OUTPUT_DIR / "shap"

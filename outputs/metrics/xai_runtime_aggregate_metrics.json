@@ -1,0 +1,26 @@
+{
+  "gradcam": {
+    "n": 97,
+    "runtime_mean_seconds": 0.025664286649513538,
+    "runtime_median_seconds": 0.02383480500020596,
+    "runtime_std_seconds": 0.005281550836011175,
+    "runtime_min_seconds": 0.01967644400019708,
+    "runtime_max_seconds": 0.04686737800011542
+  },
+  "lime": {
+    "n": 97,
+    "runtime_mean_seconds": 9.827660677969064,
+    "runtime_median_seconds": 9.77413696099984,
+    "runtime_std_seconds": 0.5089445130256927,
+    "runtime_min_seconds": 8.963714798000183,
+    "runtime_max_seconds": 11.58549363100019
+  },
+  "shap": {
+    "n": 97,
+    "runtime_mean_seconds": 2.039720339886595,
+    "runtime_median_seconds": 2.030152037999869,
+    "runtime_std_seconds": 0.053575066645697285,
+    "runtime_min_seconds": 1.8926592409998193,
+    "runtime_max_seconds": 2.1811649139999645
+  }
+}
