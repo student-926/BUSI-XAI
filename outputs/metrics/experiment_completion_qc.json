@@ -1,0 +1,49 @@
+{
+  "experiment": "BUSI-XAI",
+  "status": "complete",
+  "experimental_computation_complete": true,
+  "protocol": {
+    "dataset": "BUSI",
+    "final_experimental_images": 645,
+    "train_images": 451,
+    "validation_images": 97,
+    "test_images": 97,
+    "model": "ResNet-50",
+    "input_size": [
+      224,
+      224
+    ],
+    "random_seed": 42,
+    "methods": [
+      "gradcam",
+      "lime",
+      "shap"
+    ],
+    "target": "original_predicted_class",
+    "localisation_threshold_percentile": 90.0
+  },
+  "completed_evidence": [
+    "classification performance",
+    "localisation",
+    "faithfulness",
+    "stability",
+    "pairwise explanation agreement",
+    "computational runtime",
+    "RQ3 classification-explanation relationship",
+    "inferential statistical comparison",
+    "RQ4 localisation consistency",
+    "RQ4 evidence summary"
+  ],
+  "quality_control": {
+    "cross_artifact_consistency": "passed",
+    "final_artifact_inventory": "passed",
+    "rq_evidence_coverage": "passed",
+    "additional_experimental_metric_required": false,
+    "model_retraining_required": false,
+    "xai_regeneration_required": false,
+    "experimental_protocol_change_required": false,
+    "composite_score_used": false,
+    "unconditional_single_winner_claim": false
+  },
+  "next_stage": "dissertation_results_and_discussion"
+}

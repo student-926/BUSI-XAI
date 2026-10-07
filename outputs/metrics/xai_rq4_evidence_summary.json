@@ -1,0 +1,391 @@
+{
+  "design": {
+    "research_question": "RQ4",
+    "question": "Which of the evaluated XAI methods provides the most consistent evidence of clinically relevant model attention under the defined experimental conditions?",
+    "n_test_images": 97,
+    "methods": [
+      "gradcam",
+      "lime",
+      "shap"
+    ],
+    "evidence_is_multidimensional": true,
+    "composite_score_used": false,
+    "unconditional_single_winner_claim": false
+  },
+  "localisation_consistency": {
+    "descriptive_consistency": [
+      {
+        "method": "gradcam",
+        "n": 97,
+        "iou_mean": 0.19021436572545097,
+        "iou_median": 0.1646529258469557,
+        "iou_std": 0.15811223779287872,
+        "iou_q1": 0.04671115347950429,
+        "iou_q3": 0.3015912276362437,
+        "iou_nonzero_proportion": 0.845360824742268,
+        "dice_mean": 0.2911712104227135,
+        "dice_median": 0.2827502034174125,
+        "dice_std": 0.21798497556548513,
+        "dice_q1": 0.08925318761384335,
+        "dice_q3": 0.463419269018813,
+        "dice_nonzero_proportion": 0.845360824742268,
+        "iou_ge_0_10_proportion": 0.6494845360824743,
+        "iou_ge_0_25_proportion": 0.32989690721649484,
+        "dice_ge_0_20_proportion": 0.6288659793814433,
+        "dice_ge_0_50_proportion": 0.20618556701030927
+      },
+      {
+        "method": "lime",
+        "n": 97,
+        "iou_mean": 0.13839952104591766,
+        "iou_median": 0.0760997258843493,
+        "iou_std": 0.16119148976582343,
+        "iou_q1": 0.009793988517392773,
+        "iou_q3": 0.23057900571331116,
+        "iou_nonzero_proportion": 0.9072164948453608,
+        "dice_mean": 0.21325806258907185,
+        "dice_median": 0.14143619602134885,
+        "dice_std": 0.2161061859632921,
+        "dice_q1": 0.01939799331103679,
+        "dice_q3": 0.37474880465664195,
+        "dice_nonzero_proportion": 0.9072164948453608,
+        "iou_ge_0_10_proportion": 0.4639175257731959,
+        "iou_ge_0_25_proportion": 0.21649484536082475,
+        "dice_ge_0_20_proportion": 0.44329896907216493,
+        "dice_ge_0_50_proportion": 0.1134020618556701
+      },
+      {
+        "method": "shap",
+        "n": 97,
+        "iou_mean": 0.1761959646432341,
+        "iou_median": 0.15723800691341372,
+        "iou_std": 0.12369294546060478,
+        "iou_q1": 0.0737336201838451,
+        "iou_q3": 0.2669619240942363,
+        "iou_nonzero_proportion": 1.0,
+        "dice_mean": 0.28167639021991075,
+        "dice_median": 0.2717470493953082,
+        "dice_std": 0.17313327433965184,
+        "dice_q1": 0.13734061930783242,
+        "dice_q3": 0.4214205952323154,
+        "dice_nonzero_proportion": 1.0,
+        "iou_ge_0_10_proportion": 0.6494845360824743,
+        "iou_ge_0_25_proportion": 0.31958762886597936,
+        "dice_ge_0_20_proportion": 0.6288659793814433,
+        "dice_ge_0_50_proportion": 0.12371134020618557
+      }
+    ],
+    "mcnemar_results": [
+      {
+        "method_a": "gradcam",
+        "method_b": "lime",
+        "n": 97,
+        "a_success": 82,
+        "b_success": 88,
+        "both_success": 75,
+        "both_failure": 2,
+        "a_only_success": 7,
+        "b_only_success": 13,
+        "mcnemar_statistic": 7.0,
+        "p_value": 0.26317596435546875
+      },
+      {
+        "method_a": "gradcam",
+        "method_b": "shap",
+        "n": 97,
+        "a_success": 82,
+        "b_success": 97,
+        "both_success": 82,
+        "both_failure": 0,
+        "a_only_success": 0,
+        "b_only_success": 15,
+        "mcnemar_statistic": 0.0,
+        "p_value": 6.103515625e-05
+      },
+      {
+        "method_a": "lime",
+        "method_b": "shap",
+        "n": 97,
+        "a_success": 88,
+        "b_success": 97,
+        "both_success": 88,
+        "both_failure": 0,
+        "a_only_success": 0,
+        "b_only_success": 9,
+        "mcnemar_statistic": 0.0,
+        "p_value": 0.00390625
+      }
+    ]
+  },
+  "faithfulness": {
+    "gradcam": {
+      "n": 97,
+      "original_probability_mean": 0.917820331362105,
+      "perturbed_probability_mean": 0.6824176593578046,
+      "probability_drop_mean": 0.2354026720043003,
+      "probability_drop_median": 0.10906988382339478,
+      "probability_drop_std": 0.30238826963685606,
+      "probability_drop_min": -0.36387479305267334,
+      "probability_drop_max": 0.9217418730258942,
+      "deleted_fraction_mean": 0.10000797193877552
+    },
+    "lime": {
+      "n": 97,
+      "original_probability_mean": 0.917820331362105,
+      "perturbed_probability_mean": 0.7817780721702219,
+      "probability_drop_mean": 0.13604225919188298,
+      "probability_drop_median": 0.05182349681854248,
+      "probability_drop_std": 0.238834532071086,
+      "probability_drop_min": -0.3624146580696106,
+      "probability_drop_max": 0.8882132023572922,
+      "deleted_fraction_mean": 0.11886982563644015
+    },
+    "shap": {
+      "n": 97,
+      "original_probability_mean": 0.917820331362105,
+      "perturbed_probability_mean": 0.585671669813161,
+      "probability_drop_mean": 0.33214866154894385,
+      "probability_drop_median": 0.34931761026382446,
+      "probability_drop_std": 0.1757998118254168,
+      "probability_drop_min": -0.14284193515777588,
+      "probability_drop_max": 0.8902632668614388,
+      "deleted_fraction_mean": 0.10000797193877552
+    }
+  },
+  "stability": {
+    "gradcam": {
+      "n": 97,
+      "spearman_mean": 0.6743454702465592,
+      "spearman_median": 0.7613215824721162,
+      "spearman_std": 0.23599831943482183,
+      "spearman_min": -0.06400678792640783,
+      "spearman_max": 0.9201818506603627,
+      "mae_mean": 0.06465208689807002,
+      "mae_median": 0.05677739530801773,
+      "mae_std": 0.036663846734408485,
+      "mae_min": 0.013887040317058563,
+      "mae_max": 0.1658102124929428,
+      "runtime_mean_seconds": 0.02789952625773798,
+      "runtime_median_seconds": 0.02154515700021875,
+      "prediction_changed_count": 17,
+      "prediction_changed_rate": 0.17525772750377655
+    },
+    "lime": {
+      "n": 97,
+      "spearman_mean": 0.3779471869427136,
+      "spearman_median": 0.38684054231247067,
+      "spearman_std": 0.1614356889927064,
+      "spearman_min": -0.027023976801663043,
+      "spearman_max": 0.7256008256548753,
+      "mae_mean": 0.17170370377830624,
+      "mae_median": 0.16479799151420593,
+      "mae_std": 0.04583766278386432,
+      "mae_min": 0.07686237245798111,
+      "mae_max": 0.2801475524902344,
+      "runtime_mean_seconds": 9.714652198402066,
+      "runtime_median_seconds": 9.50754226800018,
+      "prediction_changed_count": 17,
+      "prediction_changed_rate": 0.17525772750377655
+    },
+    "shap": {
+      "n": 97,
+      "spearman_mean": 0.6464496657145121,
+      "spearman_median": 0.6485675830360227,
+      "spearman_std": 0.06284620990030915,
+      "spearman_min": 0.5003061959240214,
+      "spearman_max": 0.7957507017850605,
+      "mae_mean": 0.026270356710961798,
+      "mae_median": 0.025930698961019516,
+      "mae_std": 0.0069398180274446815,
+      "mae_min": 0.011524898931384087,
+      "mae_max": 0.045654695481061935,
+      "runtime_mean_seconds": 2.0261110410927676,
+      "runtime_median_seconds": 1.9903243349999684,
+      "prediction_changed_count": 17,
+      "prediction_changed_rate": 0.17525772750377655
+    }
+  },
+  "pairwise_explanation_agreement": {
+    "gradcam_vs_lime": {
+      "n": 97,
+      "spearman_mean": 0.23112689349421303,
+      "spearman_median": 0.26647442555827966,
+      "spearman_std": 0.2056697026985768,
+      "spearman_min": -0.28252584641793466,
+      "spearman_max": 0.605497602305525
+    },
+    "gradcam_vs_shap": {
+      "n": 97,
+      "spearman_mean": 0.34005081533716547,
+      "spearman_median": 0.3625143947854841,
+      "spearman_std": 0.16025238681207937,
+      "spearman_min": -0.17653302951462305,
+      "spearman_max": 0.6791128365298287
+    },
+    "lime_vs_shap": {
+      "n": 97,
+      "spearman_mean": 0.1629490040413141,
+      "spearman_median": 0.1609470980837,
+      "spearman_std": 0.12594473691903477,
+      "spearman_min": -0.24313598361547373,
+      "spearman_max": 0.3869393359335181
+    }
+  },
+  "classification_performance": {
+    "test_samples": 97,
+    "accuracy": 0.8969072164948454,
+    "malignant_precision": 0.8387096774193549,
+    "malignant_recall": 0.8387096774193549,
+    "malignant_f1": 0.8387096774193549,
+    "benign_specificity": 0.9242424242424242
+  },
+  "inferential_comparison": {
+    "friedman_results": {
+      "iou": {
+        "metric": "iou",
+        "n": 97,
+        "friedman_statistic": 5.119170984455876,
+        "p_value": 0.07733679050107083
+      },
+      "dice": {
+        "metric": "dice",
+        "n": 97,
+        "friedman_statistic": 5.119170984455876,
+        "p_value": 0.07733679050107083
+      },
+      "probability_drop": {
+        "metric": "probability_drop",
+        "n": 97,
+        "friedman_statistic": 38.18556701030934,
+        "p_value": 5.106337073362799e-09
+      },
+      "stability_spearman": {
+        "metric": "stability_spearman",
+        "n": 97,
+        "friedman_statistic": 96.57731958762884,
+        "p_value": 1.0678285127512769e-21
+      },
+      "stability_mae": {
+        "metric": "stability_mae",
+        "n": 97,
+        "friedman_statistic": 169.25773195876286,
+        "p_value": 1.7625867271693355e-37
+      }
+    },
+    "posthoc_results": {
+      "probability_drop": [
+        {
+          "metric": "probability_drop",
+          "method_a": "gradcam",
+          "method_b": "lime",
+          "n": 97,
+          "wilcoxon_statistic": 1375.0,
+          "raw_p_value": 0.000313801977873183,
+          "holm_adjusted_p_value": 0.000627603955746366,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "probability_drop",
+          "method_a": "gradcam",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 1534.0,
+          "raw_p_value": 0.002433320903263239,
+          "holm_adjusted_p_value": 0.002433320903263239,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "probability_drop",
+          "method_a": "lime",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 681.0,
+          "raw_p_value": 1.0553503464333128e-09,
+          "holm_adjusted_p_value": 3.1660510392999384e-09,
+          "significant_after_holm": true
+        }
+      ],
+      "stability_spearman": [
+        {
+          "metric": "stability_spearman",
+          "method_a": "gradcam",
+          "method_b": "lime",
+          "n": 97,
+          "wilcoxon_statistic": 400.0,
+          "raw_p_value": 1.1444820405959189e-12,
+          "holm_adjusted_p_value": 2.2889640811918378e-12,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "stability_spearman",
+          "method_a": "gradcam",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 1616.0,
+          "raw_p_value": 0.0062104710426835585,
+          "holm_adjusted_p_value": 0.0062104710426835585,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "stability_spearman",
+          "method_a": "lime",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 21.0,
+          "raw_p_value": 2.3379001432995612e-17,
+          "holm_adjusted_p_value": 7.013700429898683e-17,
+          "significant_after_holm": true
+        }
+      ],
+      "stability_mae": [
+        {
+          "metric": "stability_mae",
+          "method_a": "gradcam",
+          "method_b": "lime",
+          "n": 97,
+          "wilcoxon_statistic": 16.0,
+          "raw_p_value": 2.0027863206451776e-17,
+          "holm_adjusted_p_value": 4.005572641290355e-17,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "stability_mae",
+          "method_a": "gradcam",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 128.0,
+          "raw_p_value": 5.935725839361554e-16,
+          "holm_adjusted_p_value": 5.935725839361554e-16,
+          "significant_after_holm": true
+        },
+        {
+          "metric": "stability_mae",
+          "method_a": "lime",
+          "method_b": "shap",
+          "n": 97,
+          "wilcoxon_statistic": 0.0,
+          "raw_p_value": 1.218119098708288e-17,
+          "holm_adjusted_p_value": 3.654357296124864e-17,
+          "significant_after_holm": true
+        }
+      ]
+    }
+  },
+  "evidence_profile": {
+    "gradcam": {
+      "localisation": "highest mean IoU and Dice among the three methods",
+      "stability": "highest mean Spearman stability",
+      "faithfulness": "intermediate mean probability drop"
+    },
+    "lime": {
+      "localisation": "lowest mean IoU and Dice among the three methods",
+      "stability": "lowest mean Spearman stability and highest mean MAE",
+      "faithfulness": "lowest mean probability drop"
+    },
+    "shap": {
+      "localisation": "highest non-zero overlap proportion and second-highest mean IoU and Dice",
+      "stability": "lowest mean MAE and second-highest mean Spearman stability",
+      "faithfulness": "highest mean probability drop"
+    }
+  }
+}
