@@ -1,0 +1,309 @@
+{
+  "design": {
+    "test_type": "paired repeated-measures",
+    "n_test_images": 97,
+    "methods": [
+      "gradcam",
+      "lime",
+      "shap"
+    ],
+    "alpha": 0.05,
+    "overall_test": "Friedman",
+    "posthoc_test": "Wilcoxon signed-rank",
+    "multiple_comparison_correction": "Holm"
+  },
+  "friedman_results": [
+    {
+      "metric": "iou",
+      "n": 97,
+      "friedman_statistic": 5.119170984455876,
+      "p_value": 0.07733679050107083
+    },
+    {
+      "metric": "dice",
+      "n": 97,
+      "friedman_statistic": 5.119170984455876,
+      "p_value": 0.07733679050107083
+    },
+    {
+      "metric": "probability_drop",
+      "n": 97,
+      "friedman_statistic": 38.18556701030934,
+      "p_value": 5.106337073362799e-09
+    },
+    {
+      "metric": "stability_spearman",
+      "n": 97,
+      "friedman_statistic": 96.57731958762884,
+      "p_value": 1.0678285127512769e-21
+    },
+    {
+      "metric": "stability_mae",
+      "n": 97,
+      "friedman_statistic": 169.25773195876286,
+      "p_value": 1.7625867271693355e-37
+    },
+    {
+      "metric": "runtime_seconds",
+      "n": 97,
+      "friedman_statistic": 194.0,
+      "p_value": 7.471972337343043e-43
+    }
+  ],
+  "posthoc_results": [
+    {
+      "metric": "probability_drop",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "n": 97,
+      "wilcoxon_statistic": 1375.0,
+      "raw_p_value": 0.000313801977873183,
+      "holm_adjusted_p_value": 0.000627603955746366,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "probability_drop",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 1534.0,
+      "raw_p_value": 0.002433320903263239,
+      "holm_adjusted_p_value": 0.002433320903263239,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "probability_drop",
+      "method_a": "lime",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 681.0,
+      "raw_p_value": 1.0553503464333128e-09,
+      "holm_adjusted_p_value": 3.1660510392999384e-09,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "n": 97,
+      "wilcoxon_statistic": 400.0,
+      "raw_p_value": 1.1444820405959189e-12,
+      "holm_adjusted_p_value": 2.2889640811918378e-12,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 1616.0,
+      "raw_p_value": 0.0062104710426835585,
+      "holm_adjusted_p_value": 0.0062104710426835585,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "lime",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 21.0,
+      "raw_p_value": 2.3379001432995612e-17,
+      "holm_adjusted_p_value": 7.013700429898683e-17,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "n": 97,
+      "wilcoxon_statistic": 16.0,
+      "raw_p_value": 2.0027863206451776e-17,
+      "holm_adjusted_p_value": 4.005572641290355e-17,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 128.0,
+      "raw_p_value": 5.935725839361554e-16,
+      "holm_adjusted_p_value": 5.935725839361554e-16,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "lime",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 0.0,
+      "raw_p_value": 1.218119098708288e-17,
+      "holm_adjusted_p_value": 3.654357296124864e-17,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "n": 97,
+      "wilcoxon_statistic": 0.0,
+      "raw_p_value": 1.218119098708288e-17,
+      "holm_adjusted_p_value": 3.654357296124864e-17,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 0.0,
+      "raw_p_value": 1.218119098708288e-17,
+      "holm_adjusted_p_value": 3.654357296124864e-17,
+      "significant_after_holm": true
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "lime",
+      "method_b": "shap",
+      "n": 97,
+      "wilcoxon_statistic": 0.0,
+      "raw_p_value": 1.218119098708288e-17,
+      "holm_adjusted_p_value": 3.654357296124864e-17,
+      "significant_after_holm": true
+    }
+  ],
+  "effect_size_results": [
+    {
+      "metric": "probability_drop",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "median_a": 0.10906988382339478,
+      "median_b": 0.05182349681854248,
+      "median_difference_a_minus_b": 0.031058967113494873,
+      "mean_difference_a_minus_b": 0.09936041281241731,
+      "rank_biserial": 0.4214180517567852,
+      "holm_adjusted_p_value": 0.000627603955746366
+    },
+    {
+      "metric": "probability_drop",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "median_a": 0.10906988382339478,
+      "median_b": 0.34931761026382446,
+      "median_difference_a_minus_b": -0.19687819480895996,
+      "mean_difference_a_minus_b": -0.09674598954464357,
+      "rank_biserial": -0.35451293919629706,
+      "holm_adjusted_p_value": 0.002433320903263239
+    },
+    {
+      "metric": "probability_drop",
+      "method_a": "lime",
+      "method_b": "shap",
+      "median_a": 0.05182349681854248,
+      "median_b": 0.34931761026382446,
+      "median_difference_a_minus_b": -0.2450847029685974,
+      "mean_difference_a_minus_b": -0.1961064023570609,
+      "rank_biserial": -0.713444140542815,
+      "holm_adjusted_p_value": 3.1660510392999384e-09
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "median_a": 0.7613215824721162,
+      "median_b": 0.38684054231247067,
+      "median_difference_a_minus_b": 0.35018322309542715,
+      "mean_difference_a_minus_b": 0.29639828330384577,
+      "rank_biserial": 0.8316852514201557,
+      "holm_adjusted_p_value": 2.2889640811918378e-12
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "median_a": 0.7613215824721162,
+      "median_b": 0.6485675830360227,
+      "median_difference_a_minus_b": 0.08479905155115575,
+      "mean_difference_a_minus_b": 0.02789580453204724,
+      "rank_biserial": 0.320008415737429,
+      "holm_adjusted_p_value": 0.0062104710426835585
+    },
+    {
+      "metric": "stability_spearman",
+      "method_a": "lime",
+      "method_b": "shap",
+      "median_a": 0.38684054231247067,
+      "median_b": 0.6485675830360227,
+      "median_difference_a_minus_b": -0.24806234192947318,
+      "mean_difference_a_minus_b": -0.26850247877179856,
+      "rank_biserial": -0.9911634756995582,
+      "holm_adjusted_p_value": 7.013700429898683e-17
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "median_a": 0.05677739530801773,
+      "median_b": 0.16479799151420593,
+      "median_difference_a_minus_b": -0.10733102634549141,
+      "mean_difference_a_minus_b": -0.10705161688023622,
+      "rank_biserial": -0.9932674100568062,
+      "holm_adjusted_p_value": 4.005572641290355e-17
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "median_a": 0.05677739530801773,
+      "median_b": 0.025930698961019516,
+      "median_difference_a_minus_b": 0.030634114518761635,
+      "mean_difference_a_minus_b": 0.03838173018710822,
+      "rank_biserial": 0.9461392804544498,
+      "holm_adjusted_p_value": 5.935725839361554e-16
+    },
+    {
+      "metric": "stability_mae",
+      "method_a": "lime",
+      "method_b": "shap",
+      "median_a": 0.16479799151420593,
+      "median_b": 0.025930698961019516,
+      "median_difference_a_minus_b": 0.1436789222061634,
+      "mean_difference_a_minus_b": 0.14543334706734443,
+      "rank_biserial": 1.0,
+      "holm_adjusted_p_value": 3.654357296124864e-17
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "gradcam",
+      "method_b": "lime",
+      "median_a": 0.02383480500020596,
+      "median_b": 9.77413696099984,
+      "median_difference_a_minus_b": -9.74203798399958,
+      "mean_difference_a_minus_b": -9.80199639131955,
+      "rank_biserial": -1.0,
+      "holm_adjusted_p_value": 3.654357296124864e-17
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "gradcam",
+      "method_b": "shap",
+      "median_a": 0.02383480500020596,
+      "median_b": 2.030152037999869,
+      "median_difference_a_minus_b": -2.0028169130000606,
+      "mean_difference_a_minus_b": -2.014056053237081,
+      "rank_biserial": -1.0,
+      "holm_adjusted_p_value": 3.654357296124864e-17
+    },
+    {
+      "metric": "runtime_seconds",
+      "method_a": "lime",
+      "method_b": "shap",
+      "median_a": 9.77413696099984,
+      "median_b": 2.030152037999869,
+      "median_difference_a_minus_b": 7.731890411000222,
+      "mean_difference_a_minus_b": 7.787940338082469,
+      "rank_biserial": 1.0,
+      "holm_adjusted_p_value": 3.654357296124864e-17
+    }
+  ]
+}

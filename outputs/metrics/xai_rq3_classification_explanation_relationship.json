@@ -1,0 +1,258 @@
+{
+  "analysis": "classification_explanation_relationship",
+  "dataset_size": 97,
+  "methods": [
+    "gradcam",
+    "lime",
+    "shap"
+  ],
+  "joined_rows": 291,
+  "classification_counts": {
+    "correct": 261,
+    "incorrect": 30
+  },
+  "correctness_group_summary": {
+    "gradcam": {
+      "False": {
+        "n": 10,
+        "metrics": {
+          "iou": {
+            "mean": 0.20044400542040278,
+            "median": 0.20258929449014101,
+            "std": 0.15834820152548384
+          },
+          "dice": {
+            "mean": 0.30795418315292816,
+            "median": 0.3367992509947829,
+            "std": 0.2205732871180477
+          },
+          "probability_drop": {
+            "mean": 0.3700984733179212,
+            "median": 0.42456764727830887,
+            "std": 0.30000790352650897
+          },
+          "stability_spearman": {
+            "mean": 0.41936522121771114,
+            "median": 0.44134457638560987,
+            "std": 0.27912140353126125
+          }
+        }
+      },
+      "True": {
+        "n": 87,
+        "metrics": {
+          "iou": {
+            "mean": 0.1890385450708588,
+            "median": 0.16461875105201146,
+            "std": 0.15896159917996244
+          },
+          "dice": {
+            "mean": 0.28924213309740154,
+            "median": 0.2826998121115768,
+            "std": 0.21889419621558986
+          },
+          "probability_drop": {
+            "mean": 0.2199203959912404,
+            "median": 0.10452055931091309,
+            "std": 0.30049930647838957
+          },
+          "stability_spearman": {
+            "mean": 0.7036535448475764,
+            "median": 0.766393832621404,
+            "std": 0.2150277743158906
+          }
+        }
+      }
+    },
+    "lime": {
+      "False": {
+        "n": 10,
+        "metrics": {
+          "iou": {
+            "mean": 0.14127548735903106,
+            "median": 0.1452026837392298,
+            "std": 0.12754214727330956
+          },
+          "dice": {
+            "mean": 0.2280202282339952,
+            "median": 0.25351700192735555,
+            "std": 0.1949702305495741
+          },
+          "probability_drop": {
+            "mean": 0.12449441254138946,
+            "median": 0.008497864007949829,
+            "std": 0.3469541417306079
+          },
+          "stability_spearman": {
+            "mean": 0.33937564718086977,
+            "median": 0.35196989962610786,
+            "std": 0.18418754243829916
+          }
+        }
+      },
+      "True": {
+        "n": 87,
+        "metrics": {
+          "iou": {
+            "mean": 0.13806895020532986,
+            "median": 0.07536071032186459,
+            "std": 0.1652286519614109
+          },
+          "dice": {
+            "mean": 0.21156126194023003,
+            "median": 0.1401589431313861,
+            "std": 0.2193762460281576
+          },
+          "probability_drop": {
+            "mean": 0.13736959788734202,
+            "median": 0.061445534229278564,
+            "std": 0.2259641935332943
+          },
+          "stability_spearman": {
+            "mean": 0.3823806972601671,
+            "median": 0.3870850234806594,
+            "std": 0.16016163913434653
+          }
+        }
+      }
+    },
+    "shap": {
+      "False": {
+        "n": 10,
+        "metrics": {
+          "iou": {
+            "mean": 0.15886757903253018,
+            "median": 0.13220107876840514,
+            "std": 0.10901042649423391
+          },
+          "dice": {
+            "mean": 0.2609356927026281,
+            "median": 0.2331393200646374,
+            "std": 0.15687567662669402
+          },
+          "probability_drop": {
+            "mean": 0.24248130917549132,
+            "median": 0.2803158760070801,
+            "std": 0.14518518224217322
+          },
+          "stability_spearman": {
+            "mean": 0.6259494603753749,
+            "median": 0.6169461463724693,
+            "std": 0.08664170760651665
+          }
+        }
+      },
+      "True": {
+        "n": 87,
+        "metrics": {
+          "iou": {
+            "mean": 0.17818773310423455,
+            "median": 0.1572716027566708,
+            "std": 0.12568405238639643
+          },
+          "dice": {
+            "mean": 0.28406037844028803,
+            "median": 0.27179722094976333,
+            "std": 0.1755829666491168
+          },
+          "probability_drop": {
+            "mean": 0.3424552537757775,
+            "median": 0.36476850509643555,
+            "std": 0.17677940744023496
+          },
+          "stability_spearman": {
+            "mean": 0.6488060111557924,
+            "median": 0.6551117780434667,
+            "std": 0.060122835721882706
+          }
+        }
+      }
+    }
+  },
+  "probability_correlations": [
+    {
+      "method": "gradcam",
+      "metric": "iou",
+      "spearman_rho": 0.07271973162763996,
+      "p_value": 0.4790324341043838,
+      "n": 97
+    },
+    {
+      "method": "gradcam",
+      "metric": "dice",
+      "spearman_rho": 0.07271973162763996,
+      "p_value": 0.4790324341043838,
+      "n": 97
+    },
+    {
+      "method": "gradcam",
+      "metric": "probability_drop",
+      "spearman_rho": -0.2942746686303387,
+      "p_value": 0.003436008201166258,
+      "n": 97
+    },
+    {
+      "method": "gradcam",
+      "metric": "stability_spearman",
+      "spearman_rho": 0.70731643172733,
+      "p_value": 5.582054551042202e-16,
+      "n": 97
+    },
+    {
+      "method": "lime",
+      "metric": "iou",
+      "spearman_rho": 0.2357731247295979,
+      "p_value": 0.02007885936542604,
+      "n": 97
+    },
+    {
+      "method": "lime",
+      "metric": "dice",
+      "spearman_rho": 0.2357731247295979,
+      "p_value": 0.02007885936542604,
+      "n": 97
+    },
+    {
+      "method": "lime",
+      "metric": "probability_drop",
+      "spearman_rho": -0.014766989269934777,
+      "p_value": 0.8858476279806862,
+      "n": 97
+    },
+    {
+      "method": "lime",
+      "metric": "stability_spearman",
+      "spearman_rho": 0.0590811066694719,
+      "p_value": 0.5653991031582051,
+      "n": 97
+    },
+    {
+      "method": "shap",
+      "metric": "iou",
+      "spearman_rho": 0.1061829370923627,
+      "p_value": 0.3005972909846926,
+      "n": 97
+    },
+    {
+      "method": "shap",
+      "metric": "dice",
+      "spearman_rho": 0.1061829370923627,
+      "p_value": 0.3005972909846926,
+      "n": 97
+    },
+    {
+      "method": "shap",
+      "metric": "probability_drop",
+      "spearman_rho": 0.33256627393225324,
+      "p_value": 0.0008740806546798454,
+      "n": 97
+    },
+    {
+      "method": "shap",
+      "metric": "stability_spearman",
+      "spearman_rho": 0.2320113612455291,
+      "p_value": 0.022212040884808548,
+      "n": 97
+    }
+  ]
+}
