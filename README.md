@@ -21,5 +21,8 @@ pip install -r requirements.txt
 Then install packages from busi-xai:
 pip install -e . 
 
+To run the full experiment after the previous installation steps:
+python experiment-runner/run_experiment.py
 To leave the environment:
 deactivate
+
