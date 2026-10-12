@@ -1,0 +1,651 @@
+============================================================
+BUSI-XAI EXPERIMENT RUNNER
+============================================================
+EXPERIMENT started at: 2026-10-12 09:31:42 UTC
+============================================================
+
+[1/6] Running step_01_preprocessing.py
+============================================================
+Start preprocessing data
+============================================================
+============================================================
+Finished preprocessing data
+============================================================
+Saved: /content/drive/MyDrive/BUSI-XAI/outputs/metrics/preprocessing_manifest.csv
+PASSED: step_01_preprocessing.py
+
+[2/6] Running step_02_data_splitting.py
+============================================================
+Start splitting data
+============================================================
+============================================================
+Finish splitting data
+============================================================
+Saved: /content/drive/MyDrive/BUSI-XAI/data/splits/split_config.json
+PASSED: step_02_data_splitting.py
+
+[3/6] Running step_03_model_training.py
+============================================================
+Start Loading training & validation data
+============================================================
+============================================================
+Finish Loading training & validation data
+============================================================
+============================================================
+Start Training model
+============================================================
+Downloading: "https://download.pytorch.org/models/resnet50-11ad3fa6.pth" to /root/.cache/torch/hub/checkpoints/resnet50-11ad3fa6.pth
+Epoch 01/20 | Train Loss: 0.6614 | Train Acc: 0.6098 | Val Loss: 0.6607 | Val Acc: 0.7010epoch time: 12.2711is best epoch: True
+  → Best model checkpoint updated.
+Epoch 02/20 | Train Loss: 0.4995 | Train Acc: 0.8093 | Val Loss: 0.5922 | Val Acc: 0.7010epoch time: 9.9504is best epoch: True
+  → Best model checkpoint updated.
+Epoch 03/20 | Train Loss: 0.2951 | Train Acc: 0.9135 | Val Loss: 0.5288 | Val Acc: 0.7732epoch time: 12.6058is best epoch: True
+  → Best model checkpoint updated.
+Epoch 04/20 | Train Loss: 0.1687 | Train Acc: 0.9579 | Val Loss: 0.4924 | Val Acc: 0.8763epoch time: 22.9887is best epoch: True
+  → Best model checkpoint updated.
+Epoch 05/20 | Train Loss: 0.0958 | Train Acc: 0.9823 | Val Loss: 0.4750 | Val Acc: 0.8866epoch time: 24.4893is best epoch: True
+  → Best model checkpoint updated.
+Epoch 06/20 | Train Loss: 0.0632 | Train Acc: 0.9889 | Val Loss: 0.4343 | Val Acc: 0.8866epoch time: 22.9358is best epoch: True
+  → Best model checkpoint updated.
+Epoch 07/20 | Train Loss: 0.0358 | Train Acc: 0.9956 | Val Loss: 0.5201 | Val Acc: 0.8763epoch time: 25.2000is best epoch: False
+  → Best model checkpoint updated.
+Epoch 08/20 | Train Loss: 0.0277 | Train Acc: 0.9933 | Val Loss: 0.5080 | Val Acc: 0.8763epoch time: 12.2217is best epoch: False
+  → Best model checkpoint updated.
+Epoch 09/20 | Train Loss: 0.0247 | Train Acc: 0.9978 | Val Loss: 0.6680 | Val Acc: 0.8763epoch time: 10.0324is best epoch: False
+  → Best model checkpoint updated.
+Epoch 10/20 | Train Loss: 0.0672 | Train Acc: 0.9800 | Val Loss: 0.3997 | Val Acc: 0.8454epoch time: 11.2950is best epoch: True
+  → Best model checkpoint updated.
+Epoch 11/20 | Train Loss: 0.0565 | Train Acc: 0.9889 | Val Loss: 0.3591 | Val Acc: 0.8660epoch time: 17.5649is best epoch: True
+  → Best model checkpoint updated.
+Epoch 12/20 | Train Loss: 0.0296 | Train Acc: 0.9933 | Val Loss: 0.3794 | Val Acc: 0.8763epoch time: 24.5202is best epoch: False
+  → Best model checkpoint updated.
+Epoch 13/20 | Train Loss: 0.0206 | Train Acc: 0.9956 | Val Loss: 0.4870 | Val Acc: 0.8247epoch time: 12.1592is best epoch: False
+  → Best model checkpoint updated.
+Epoch 14/20 | Train Loss: 0.0567 | Train Acc: 0.9933 | Val Loss: 0.5174 | Val Acc: 0.8247epoch time: 10.9243is best epoch: False
+  → Best model checkpoint updated.
+Epoch 15/20 | Train Loss: 0.0272 | Train Acc: 0.9956 | Val Loss: 0.5166 | Val Acc: 0.8557epoch time: 9.4160is best epoch: False
+  → Best model checkpoint updated.
+Epoch 16/20 | Train Loss: 0.0295 | Train Acc: 0.9956 | Val Loss: 0.4563 | Val Acc: 0.8557epoch time: 11.6064is best epoch: False
+  → Best model checkpoint updated.
+Epoch 17/20 | Train Loss: 0.0140 | Train Acc: 0.9978 | Val Loss: 0.4097 | Val Acc: 0.8763epoch time: 11.5097is best epoch: False
+  → Best model checkpoint updated.
+Epoch 18/20 | Train Loss: 0.0178 | Train Acc: 0.9978 | Val Loss: 0.4608 | Val Acc: 0.8866epoch time: 10.9761is best epoch: False
+  → Best model checkpoint updated.
+Epoch 19/20 | Train Loss: 0.0174 | Train Acc: 0.9933 | Val Loss: 0.4409 | Val Acc: 0.8660epoch time: 10.4904is best epoch: False
+  → Best model checkpoint updated.
+Epoch 20/20 | Train Loss: 0.0296 | Train Acc: 0.9911 | Val Loss: 0.4872 | Val Acc: 0.8557epoch time: 11.7094is best epoch: False
+  → Best model checkpoint updated.
+============================================================
+Finish Training model
+============================================================
+PASSED: step_03_model_training.py
+
+[4/6] Running step_04_classification_evaluation.py
+============================================================
+Start Loading testing data
+============================================================
+============================================================
+Finish Loading testing data
+============================================================
+============================================================
+Start evaluating classification model
+============================================================
+============================================================
+Finish evaluating classification model
+============================================================
+============================================================
+Start evaluation Report
+============================================================
+Final classification metrics saved to:
+/content/drive/MyDrive/BUSI-XAI/outputs/metrics/test_classification_metrics.json
+Confusion matrix:
+[[61  5]
+ [ 4 27]]
+
+Accuracy:    0.9072
+Precision:   0.8438
+Recall:      0.8710
+F1-score:    0.8571
+Specificity: 0.9242
+
+Classification report:
+{'benign': {'precision': 0.9384615384615385, 'recall': 0.9242424242424242, 'f1-score': 0.9312977099236641, 'support': 66.0}, 'malignant': {'precision': 0.84375, 'recall': 0.8709677419354839, 'f1-score': 0.8571428571428571, 'support': 31.0}, 'accuracy': 0.9072164948453608, 'macro avg': {'precision': 0.8911057692307692, 'recall': 0.897605083088954, 'f1-score': 0.8942202835332607, 'support': 97.0}, 'weighted avg': {'precision': 0.9081929024583664, 'recall': 0.9072164948453608, 'f1-score': 0.9075987363545401, 'support': 97.0}}
+============================================================
+End evaluation Report
+============================================================
+PASSED: step_04_classification_evaluation.py
+
+[5/6] Running step_05_xai_generation.py
+============================================================
+Start preparing XAI protocol
+============================================================
+============================================================
+Finish preparing XAI protocol
+============================================================
+Protocol saved to: /content/drive/MyDrive/BUSI-XAI/outputs/xai/xai_protocol.json
+============================================================
+Start Loading test data
+============================================================
+============================================================
+Finish Loading test data
+============================================================
+============================================================
+Start loading and preparing pretrained classification model
+============================================================
+============================================================
+Finish loading and preparing pretrained classification model
+============================================================
+============================================================
+Start XAI evaluation process
+============================================================
+[1/97] index=0, true=0, pred=0
+[2/97] index=1, true=0, pred=0
+[3/97] index=2, true=0, pred=0
+[4/97] index=3, true=0, pred=0
+[5/97] index=4, true=0, pred=0
+[6/97] index=5, true=0, pred=0
+[7/97] index=6, true=0, pred=0
+[8/97] index=7, true=0, pred=0
+[9/97] index=8, true=1, pred=1
+[10/97] index=9, true=0, pred=1
+[11/97] index=10, true=0, pred=0
+[12/97] index=11, true=0, pred=0
+[13/97] index=12, true=1, pred=1
+[14/97] index=13, true=0, pred=0
+[15/97] index=14, true=0, pred=1
+[16/97] index=15, true=0, pred=0
+[17/97] index=16, true=1, pred=1
+[18/97] index=17, true=0, pred=0
+[19/97] index=18, true=0, pred=0
+[20/97] index=19, true=0, pred=0
+[21/97] index=20, true=0, pred=0
+[22/97] index=21, true=1, pred=1
+[23/97] index=22, true=1, pred=1
+[24/97] index=23, true=1, pred=0
+[25/97] index=24, true=1, pred=1
+[26/97] index=25, true=0, pred=0
+[27/97] index=26, true=1, pred=1
+[28/97] index=27, true=1, pred=1
+[29/97] index=28, true=0, pred=0
+[30/97] index=29, true=0, pred=0
+[31/97] index=30, true=0, pred=0
+[32/97] index=31, true=0, pred=0
+[33/97] index=32, true=0, pred=0
+[34/97] index=33, true=0, pred=0
+[35/97] index=34, true=0, pred=0
+[36/97] index=35, true=1, pred=1
+[37/97] index=36, true=1, pred=1
+[38/97] index=37, true=0, pred=0
+[39/97] index=38, true=0, pred=0
+[40/97] index=39, true=0, pred=0
+[41/97] index=40, true=0, pred=0
+[42/97] index=41, true=0, pred=0
+[43/97] index=42, true=0, pred=0
+[44/97] index=43, true=1, pred=1
+[45/97] index=44, true=1, pred=1
+[46/97] index=45, true=0, pred=0
+[47/97] index=46, true=0, pred=0
+[48/97] index=47, true=1, pred=1
+[49/97] index=48, true=0, pred=0
+[50/97] index=49, true=0, pred=0
+[51/97] index=50, true=0, pred=0
+[52/97] index=51, true=0, pred=0
+[53/97] index=52, true=1, pred=1
+[54/97] index=53, true=0, pred=0
+[55/97] index=54, true=1, pred=1
+[56/97] index=55, true=0, pred=0
+[57/97] index=56, true=0, pred=0
+[58/97] index=57, true=0, pred=0
+[59/97] index=58, true=1, pred=1
+[60/97] index=59, true=1, pred=1
+[61/97] index=60, true=0, pred=0
+[62/97] index=61, true=0, pred=0
+[63/97] index=62, true=0, pred=0
+[64/97] index=63, true=1, pred=1
+[65/97] index=64, true=0, pred=0
+[66/97] index=65, true=0, pred=1
+[67/97] index=66, true=0, pred=0
+[68/97] index=67, true=1, pred=1
+[69/97] index=68, true=1, pred=1
+[70/97] index=69, true=0, pred=1
+[71/97] index=70, true=1, pred=1
+[72/97] index=71, true=0, pred=0
+[73/97] index=72, true=0, pred=0
+[74/97] index=73, true=0, pred=0
+[75/97] index=74, true=0, pred=0
+[76/97] index=75, true=0, pred=0
+[77/97] index=76, true=0, pred=0
+[78/97] index=77, true=1, pred=1
+[79/97] index=78, true=1, pred=0
+[80/97] index=79, true=1, pred=0
+[81/97] index=80, true=0, pred=0
+[82/97] index=81, true=0, pred=0
+[83/97] index=82, true=1, pred=1
+[84/97] index=83, true=0, pred=0
+[85/97] index=84, true=0, pred=0
+[86/97] index=85, true=0, pred=0
+[87/97] index=86, true=1, pred=1
+[88/97] index=87, true=0, pred=0
+[89/97] index=88, true=0, pred=1
+[90/97] index=89, true=1, pred=0
+[91/97] index=90, true=1, pred=1
+[92/97] index=91, true=0, pred=0
+[93/97] index=92, true=0, pred=0
+[94/97] index=93, true=1, pred=1
+[95/97] index=94, true=1, pred=1
+[96/97] index=95, true=0, pred=0
+[97/97] index=96, true=0, pred=0
+============================================================
+Finish XAI evaluation process
+============================================================
+XAI Records saved to:
+/content/drive/MyDrive/BUSI-XAI/outputs/xai/xai_records.json
+============================================================
+Start aggregation
+============================================================
+============================================================
+Finish aggregation
+============================================================
+
+=== Aggregation Report === ['gradcam', 'lime', 'shap']
+
+=== GRADCAM ===
+overall: n=97
+correct: n=88
+incorrect: n=9
+benign: n=66
+malignant: n=31
+
+=== LIME ===
+overall: n=97
+correct: n=88
+incorrect: n=9
+benign: n=66
+malignant: n=31
+
+=== SHAP ===
+overall: n=97
+correct: n=88
+incorrect: n=9
+benign: n=66
+malignant: n=31
+
+Total records: 291
+
+============================================================
+GRADCAM
+============================================================
+
+--- overall (n=97) ---
+IoU:     mean=0.212288, median=0.185937, std=0.156766
+Dice:    mean=0.323879, median=0.313570, std=0.207640
+Runtime: mean=0.024217s, median=0.019845s, std=0.016215s
+
+--- correct (n=88) ---
+IoU:     mean=0.213004, median=0.193854, std=0.156351
+Dice:    mean=0.325004, median=0.324680, std=0.207383
+Runtime: mean=0.024611s, median=0.019914s, std=0.016965s
+
+--- incorrect (n=9) ---
+IoU:     mean=0.205286, median=0.131876, std=0.170297
+Dice:    mean=0.312874, median=0.233022, std=0.222517
+Runtime: mean=0.020363s, median=0.019507s, std=0.002563s
+
+--- benign (n=66) ---
+IoU:     mean=0.167233, median=0.137993, std=0.137304
+Dice:    mean=0.264946, median=0.242520, std=0.188135
+Runtime: mean=0.025400s, median=0.020016s, std=0.019282s
+
+--- malignant (n=31) ---
+IoU:     mean=0.308212, median=0.307580, std=0.154341
+Dice:    mean=0.449348, median=0.470457, std=0.193310
+Runtime: mean=0.021697s, median=0.019507s, std=0.005112s
+
+============================================================
+LIME
+============================================================
+
+--- overall (n=97) ---
+IoU:     mean=0.157467, median=0.105481, std=0.170836
+Dice:    mean=0.240294, median=0.190833, std=0.221189
+Runtime: mean=9.013605s, median=9.080254s, std=0.637223s
+
+--- correct (n=88) ---
+IoU:     mean=0.153682, median=0.102707, std=0.172654
+Dice:    mean=0.234224, median=0.186278, std=0.221263
+Runtime: mean=8.998340s, median=9.053266s, std=0.651739s
+
+--- incorrect (n=9) ---
+IoU:     mean=0.194469, median=0.217276, std=0.156026
+Dice:    mean=0.299648, median=0.356987, std=0.224304
+Runtime: mean=9.162866s, median=9.121072s, std=0.475094s
+
+--- benign (n=66) ---
+IoU:     mean=0.146115, median=0.099074, std=0.171465
+Dice:    mean=0.223714, median=0.180281, std=0.216317
+Runtime: mean=9.058478s, median=9.084601s, std=0.726807s
+
+--- malignant (n=31) ---
+IoU:     mean=0.181636, median=0.145472, std=0.169717
+Dice:    mean=0.275594, median=0.253994, std=0.230826
+Runtime: mean=8.918069s, median=9.026277s, std=0.375460s
+
+============================================================
+SHAP
+============================================================
+
+--- overall (n=97) ---
+IoU:     mean=0.184205, median=0.171922, std=0.124801
+Dice:    mean=0.293382, median=0.293401, std=0.170971
+Runtime: mean=1.983794s, median=1.955462s, std=0.082125s
+
+--- correct (n=88) ---
+IoU:     mean=0.190840, median=0.176634, std=0.126815
+Dice:    mean=0.302412, median=0.300217, std=0.173047
+Runtime: mean=1.986401s, median=1.955529s, std=0.085346s
+
+--- incorrect (n=9) ---
+IoU:     mean=0.119325, median=0.096020, std=0.082425
+Dice:    mean=0.205092, median=0.175215, std=0.124308
+Runtime: mean=1.958297s, median=1.950193s, std=0.030229s
+
+--- benign (n=66) ---
+IoU:     mean=0.170786, median=0.133928, std=0.135312
+Dice:    mean=0.271072, median=0.236218, std=0.182740
+Runtime: mean=1.981993s, median=1.955134s, std=0.093076s
+
+--- malignant (n=31) ---
+IoU:     mean=0.212775, median=0.213314, std=0.094508
+Dice:    mean=0.340881, median=0.351622, std=0.133264
+Runtime: mean=1.987628s, median=1.970858s, std=0.052819s
+Saved: /content/drive/MyDrive/BUSI-XAI/outputs/metrics/xai_aggregate_metrics.json
+PASSED: step_05_xai_generation.py
+
+[6/6] Running step_06_xai_evaluation.py
+============================================================
+Start loading test data
+============================================================
+============================================================
+Finish loading test data
+============================================================
+============================================================
+Start preparing pretrained classification model
+============================================================
+============================================================
+Finish preparing pretrained classification model
+============================================================
+============================================================
+1- Faithfulness
+============================================================
+============================================================
+Start Faithfulness evaluation
+============================================================
+============================================================
+Finish Faithfulness evaluation
+============================================================
+Faithfulness records saved.
+Path: /content/drive/MyDrive/BUSI-XAI/outputs/xai/xai_faithfulness_records.json
+============================================================
+Start Faithfulness aggregation
+============================================================
+============================================================
+Finish Faithfulness aggregation
+============================================================
+=== Aggregate faithfulness metrics ===
+
+GRADCAM
+n: 97
+original_probability_mean: 0.9344388394011665
+perturbed_probability_mean: 0.7255903703266198
+probability_drop_mean: 0.20884846907454668
+probability_drop_median: 0.05481147766113281
+probability_drop_std: 0.29942190350197195
+probability_drop_min: -0.2985263466835022
+probability_drop_max: 0.9678527917712927
+deleted_fraction_mean: 0.10000858832579425
+
+LIME
+n: 97
+original_probability_mean: 0.9344388394011665
+perturbed_probability_mean: 0.7399628840233248
+probability_drop_mean: 0.19447595537784174
+probability_drop_median: 0.13643020391464233
+probability_drop_std: 0.2440046605206882
+probability_drop_min: -0.37420111894607544
+probability_drop_max: 0.9234102070331573
+deleted_fraction_mean: 0.12155809488743952
+
+SHAP
+n: 97
+original_probability_mean: 0.9344388394011665
+perturbed_probability_mean: 0.5196555000297802
+probability_drop_mean: 0.4147833393713863
+probability_drop_median: 0.4338186979293823
+probability_drop_std: 0.18133057895179797
+probability_drop_min: -0.3985125422477722
+probability_drop_max: 0.7818928956985474
+deleted_fraction_mean: 0.10000797193877552
+Faithfulness aggregation records saved.
+Path: /content/drive/MyDrive/BUSI-XAI/outputs/metrics/xai_faithfulness_aggregate_metrics.json
+============================================================
+2- Stability
+============================================================
+============================================================
+Start Stability calculation
+============================================================
+Completed dataset_index=0
+Completed dataset_index=1
+Completed dataset_index=2
+Completed dataset_index=3
+Completed dataset_index=4
+Completed dataset_index=5
+Completed dataset_index=6
+Completed dataset_index=7
+Completed dataset_index=8
+Completed dataset_index=9
+Completed dataset_index=10
+Completed dataset_index=11
+Completed dataset_index=12
+Completed dataset_index=13
+Completed dataset_index=14
+Completed dataset_index=15
+Completed dataset_index=16
+Completed dataset_index=17
+Completed dataset_index=18
+Completed dataset_index=19
+Completed dataset_index=20
+Completed dataset_index=21
+Completed dataset_index=22
+Completed dataset_index=23
+Completed dataset_index=24
+Completed dataset_index=25
+Completed dataset_index=26
+Completed dataset_index=27
+Completed dataset_index=28
+Completed dataset_index=29
+Completed dataset_index=30
+Completed dataset_index=31
+Completed dataset_index=32
+Completed dataset_index=33
+Completed dataset_index=34
+Completed dataset_index=35
+Completed dataset_index=36
+Completed dataset_index=37
+Completed dataset_index=38
+Completed dataset_index=39
+Completed dataset_index=40
+Completed dataset_index=41
+Completed dataset_index=42
+Completed dataset_index=43
+Completed dataset_index=44
+Completed dataset_index=45
+Completed dataset_index=46
+Completed dataset_index=47
+Completed dataset_index=48
+Completed dataset_index=49
+Completed dataset_index=50
+Completed dataset_index=51
+Completed dataset_index=52
+Completed dataset_index=53
+Completed dataset_index=54
+Completed dataset_index=55
+Completed dataset_index=56
+Completed dataset_index=57
+Completed dataset_index=58
+Completed dataset_index=59
+Completed dataset_index=60
+Completed dataset_index=61
+Completed dataset_index=62
+Completed dataset_index=63
+Completed dataset_index=64
+Completed dataset_index=65
+Completed dataset_index=66
+Completed dataset_index=67
+Completed dataset_index=68
+Completed dataset_index=69
+Completed dataset_index=70
+Completed dataset_index=71
+Completed dataset_index=72
+Completed dataset_index=73
+Completed dataset_index=74
+Completed dataset_index=75
+Completed dataset_index=76
+Completed dataset_index=77
+Completed dataset_index=78
+Completed dataset_index=79
+Completed dataset_index=80
+Completed dataset_index=81
+Completed dataset_index=82
+Completed dataset_index=83
+Completed dataset_index=84
+Completed dataset_index=85
+Completed dataset_index=86
+Completed dataset_index=87
+Completed dataset_index=88
+Completed dataset_index=89
+Completed dataset_index=90
+Completed dataset_index=91
+Completed dataset_index=92
+Completed dataset_index=93
+Completed dataset_index=94
+Completed dataset_index=95
+Completed dataset_index=96
+============================================================
+Finish Stability calculation
+============================================================
+============================================================
+Start Stability validation
+============================================================
+============================================================
+Finish Stability validation
+============================================================
+=== Stability records saved ===
+Path: /content/drive/MyDrive/BUSI-XAI/outputs/xai/stability/xai_stability_records.json
+============================================================
+Start Stability aggregations
+============================================================
+============================================================
+Finish Stability aggregations
+============================================================
+=== Aggregate stability metrics ===
+
+GRADCAM
+n: 97
+spearman_mean: 0.7291983011855451
+spearman_median: 0.7599904920913857
+spearman_std: 0.17257042202985873
+spearman_min: -0.17395716213757942
+spearman_max: 0.9364680895944913
+mae_mean: 0.05586495773732355
+mae_median: 0.04765133932232857
+mae_std: 0.03529791240265832
+mae_min: 0.009668714366853237
+mae_max: 0.21170561015605927
+runtime_mean_seconds: 0.02450143435051584
+runtime_median_seconds: 0.022816543999852
+prediction_changed_count: 7
+prediction_changed_rate: 0.07216494530439377
+
+LIME
+n: 97
+spearman_mean: 0.3041686803022482
+spearman_median: 0.31361830144601893
+spearman_std: 0.18417946525324289
+spearman_min: -0.21801557548819336
+spearman_max: 0.7570481778589957
+mae_mean: 0.19420537337199928
+mae_median: 0.19713681936264038
+mae_std: 0.07498178458211406
+mae_min: 0.04082760214805603
+mae_max: 0.4019966125488281
+runtime_mean_seconds: 9.064848380721648
+runtime_median_seconds: 9.073443758999929
+prediction_changed_count: 7
+prediction_changed_rate: 0.07216494530439377
+
+SHAP
+n: 97
+spearman_mean: 0.6198846478446732
+spearman_median: 0.6241966194418508
+spearman_std: 0.07277369032709474
+spearman_min: 0.45135983785352896
+spearman_max: 0.7666827849653134
+mae_mean: 0.024882360121484884
+mae_median: 0.024803392589092255
+mae_std: 0.006863316828271809
+mae_min: 0.009531429968774319
+mae_max: 0.04208396375179291
+runtime_mean_seconds: 1.9796055675773243
+runtime_median_seconds: 1.9584600680000221
+prediction_changed_count: 7
+prediction_changed_rate: 0.07216494530439377
+=== Aggregate stability metrics saved ===
+Path: /content/drive/MyDrive/BUSI-XAI/outputs/metrics/xai_stability_aggregate_metrics.json
+============================================================
+3- Pairwise agreement
+============================================================
+============================================================
+Start pairwise calculation
+============================================================
+============================================================
+Finish pairwise calculation
+============================================================
+=== Pairwise explanation agreement ===
+GRADCAM vs LIME: n=97, mean=0.273258, median=0.300926, std=0.194970, min=-0.299855, max=0.654014
+GRADCAM vs SHAP: n=97, mean=0.305176, median=0.305809, std=0.145083, min=-0.053082, max=0.637281
+LIME vs SHAP: n=97, mean=0.186252, median=0.194366, std=0.127820, min=-0.249481, max=0.447359
+============================================================
+Start pairwise aggregations
+============================================================
+============================================================
+Finish pairwise aggregations
+============================================================
+=== Pairwise agreement artifacts saved ===
+Records: /content/drive/MyDrive/BUSI-XAI/outputs/xai/xai_pairwise_agreement_records.json
+Aggregate: /content/drive/MyDrive/BUSI-XAI/outputs/xai/xai_pairwise_agreement_aggregate_metrics.json
+============================================================
+4- Computational efficiency
+============================================================
+============================================================
+Start runtime summary
+============================================================
+============================================================
+Finish runtime summary
+============================================================
+=== XAI Runtime Aggregates ===
+GRADCAM: n=97, mean=0.024217s, median=0.019845s, std=0.016131s, min=0.017884s, max=0.164165s
+LIME: n=97, mean=9.013605s, median=9.080254s, std=0.633930s, min=8.122252s, max=13.764424s
+SHAP: n=97, mean=1.983794s, median=1.955462s, std=0.081700s, min=1.910858s, max=2.594550s
+=== XAI runtime artifact saved ===
+Path: /content/drive/MyDrive/BUSI-XAI/outputs/metrics/xai_runtime_aggregate_metrics.json
+PASSED: step_06_xai_evaluation.py
+
+============================================================
+Finished ALL SIX STEP
+============================================================
+
+============================================================
+EXPERIMENT started:  2026-10-12 09:31:42 UTC
+EXPERIMENT finished: 2026-10-12 10:32:52 UTC
+Consumed time:   01:01:09.70 (HH:MM:SS)
+============================================================
