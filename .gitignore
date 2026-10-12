@@ -3,3 +3,6 @@
 # Python cache
 __pycache__/
 *.py[cod]
+outputs/
+src/busi_xai.egg-info/
+src/busi_xai/__pycache__/
